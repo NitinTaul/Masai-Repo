@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FetchTodos</title>
+    <style>
+        #cont{
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+
+        }
+        #Fetchbtn{
+            width: 150px;
+            height: 30px;
+            background-color: #EEEEEF;
+            color:black;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        #cont>div{
+          margin: 20px auto;
+        padding-left: 10px;
+          display: flex;
+          justify-content: flex-start;
+          border-radius: 5px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="cont">
+      <button id="Fetchbtn">Fetch Todos</button>
+      
+    </div>
+  </body>
+  <script>
+    let cont = document.getElementById("cont");
+    let Fetchbtn = document.getElementById("Fetchbtn");
+    Fetchbtn.addEventListener("click", function () {
+      getData();
+    });
+    async function getData() {
+      let url = "https://jsonplaceholder.typicode.com/todos";
+      let res = await fetch(url);
+      let data = await res.json();
+ showData(data);
+    }
+function showData(data) {
+    data.map((ele,index)=>{
+        let div = document.createElement("div");
+        let title = document.createElement("h3");
+        title.innerHTML = ele.title;
+        let check = document.createElement("input");
+        check.type = "checkbox";
+        check.checked = ele.completed;
+
+div.append(title,check);
+cont.append(div);
+    })
+}
+  </script>
+</html>
