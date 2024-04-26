@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greeting</title>
+  </head>
+  <body></body>
+  <script>
+    function generateGreeting(name, language = "English") {
+      if (language === "English") {
+        return `Hello ${name}`;
+      } else if (language === "Hindi") {
+        return `Namaste ${name}`;
+      } else if (language === "Spanish") {
+        return `Hola ${name}`;
+      } else if (language === "French") {
+        return `Bonjour ${name}`;
+      } else if (language === "German") {
+        return `Hallo ${name}`;
+      } else if (language === "Italian") {
+        return `Ciao ${name}`;
+      } else if (language === "Japanese") {
+        return `Konnichiwa ${name}`;
+      } else if (language === "Korean") {
+        return `Annyeonghaseyo ${name}`;
+      } else if (language === "Russian") {
+        return `Privet ${name}`;
+      }
+    }
+    console.log(generateGreeting("Alice"));
+    console.log(generateGreeting("Bob", "Spanish"));
+    console.log(generateGreeting("Charlie", "French"));
+    console.log(generateGreeting("Masai", "Hindi"));
+  </script>
+</html>
